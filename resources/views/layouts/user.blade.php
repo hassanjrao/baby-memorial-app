@@ -9,7 +9,7 @@
     <meta content="" name="description" />
 
     <!-- Favicon -->
-    <link href="{{  asset('img/favicon.ico')}}" rel="icon" />
+    <link href="{{ asset('img/favicon.ico') }}" rel="icon" />
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -30,7 +30,8 @@
     <link href="{{ asset('front-asset/css/bootstrap.min.css') }}" rel="stylesheet" />
 
     <!-- Template Stylesheet -->
-    <link href="{{ asset('front-asset/css/style.css') }}" rel="stylesheet" />
+    <link href="{{ asset('front-asset/css/style1.css') }}" rel="stylesheet" />
+    @livewireStyles
 </head>
 
 <body>
@@ -46,7 +47,7 @@
 
         <!-- Navbar Start -->
         <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0">
-            <a href="index.html" class="navbar-brand">
+            <a href="{{ route("home") }}" class="navbar-brand">
                 <h1 class="m-0 text-primary">
                     <i class="fa fa-book-reader me-3"></i>Site name
                 </h1>
@@ -56,10 +57,14 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav mx-auto">
-                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="{{ route("home") }}" class="nav-item nav-link active">Home</a>
                     <a href="about.html" class="nav-item nav-link">About Us</a>
-                    <!-- <a href="classes.html" class="nav-item nav-link">Classes</a>
-                    <div class="nav-item dropdown">
+                    @auth
+                        <a href="{{ route("user.profile") }}" class="nav-item nav-link">Profile</a>
+                        <a href="{{ route("user.baby-requests.index") }}" class="nav-item nav-link">Requests</a>
+                    @endauth
+
+                    {{-- <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                         <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
                             <a href="facility.html" class="dropdown-item">School Facilities</a>
@@ -69,11 +74,25 @@
                             <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                             <a href="404.html" class="dropdown-item">404 Error</a>
                         </div>
-                    </div> -->
-                    <a href="contact.html" class="nav-item nav-link">Contact Us</a>
+                    </div>
+                    <a href="contact.html" class="nav-item nav-link">Contact Us</a> --}}
                 </div>
-                <a href="" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">Sign Up<i
-                        class="fa fa-arrow-right ms-3"></i></a>
+                @auth
+
+
+                    <a class="btn btn-primary rounded-pill px-3 d-none d-lg-block"
+                        onclick="document.getElementById('logout-form').submit()">
+                        Logout<i class="fa fa-arrow-right ms-3"></i></a>
+                    <form action="{{ route('logout') }}" id="logout-form" method="POST">
+                        @csrf
+
+                    </form>
+                @endauth
+
+                @guest
+                    <a href="{{ route("login") }}" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">Login<i
+                            class="fa fa-arrow-right ms-3"></i></a>
+                @endguest
             </div>
         </nav>
         <!-- Navbar End -->
@@ -159,13 +178,96 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{{  asset('front-asset/lib/wow/wow.min.js')}}"></script>
-    <script src="{{  asset('front-asset/lib/easing/easing.min.js')}}"></script>
-    <script src="{{  asset('front-asset/lib/waypoints/waypoints.min.js')}}"></script>
-    <script src="{{  asset('front-asset/lib/owlcarousel/owl.carousel.min.js')}}"></script>
+    <script src="{{ asset('front-asset/lib/wow/wow.min.js') }}"></script>
+    <script src="{{ asset('front-asset/lib/easing/easing.min.js') }}"></script>
+    <script src="{{ asset('front-asset/lib/waypoints/waypoints.min.js') }}"></script>
+    <script src="{{ asset('front-asset/lib/owlcarousel/owl.carousel.min.js') }}"></script>
 
     <!-- Template Javascript -->
-    <script src="{{  asset('front-asset/js/main.js')}}"></script>
+    <script src="{{ asset('front-asset/js/main.js') }}"></script>
+
+    @livewireScripts
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @include('sweetalert::alert')
+    <script src="https://cdn.ckeditor.com/ckeditor5/26.0.0/classic/ckeditor.js"></script>
+    
+    <script>
+        function confirmDelete(id) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $("#form-" + id).submit();
+                    // Swal.fire(
+                    //     'Deleted!',
+                    //     'Your file has been deleted.',
+                    //     'success'
+                    // )
+                }
+            })
+        }
+
+        window.addEventListener('show-status', event => {
+            Swal.fire({
+                icon: event.detail.type,
+                title: event.detail.msg,
+            })
+        })
+
+        window.addEventListener('scroll-top', event => {
+
+            $("body").scrollTop(0);
+
+        })
+
+
+
+        function ckeditor() {
+            return {
+                /**
+                 * The function creates the editor and returns its instance
+                 * @param $dispatch Alpine's magic property
+                 */
+                create: async function($dispatch) {
+                    // Create the editor with the x-ref
+                    const editor = await ClassicEditor.create(this.$refs.ckEditor);
+                    // Handle data updates
+                    editor.model.document.on('change:data', function() {
+                        $dispatch('input', editor.getData())
+                    });
+                    // return the editor
+                    return editor;
+                },
+                /**
+                 * Initilizes the editor and creates a listener to recreate it after a rerender
+                 * @param $dispatch Alpine's magic property
+                 */
+                init: async function($dispatch) {
+                    // Get an editor instance
+                    const editor = await this.create($dispatch);
+                    // Set the initial data
+                    editor.setData('{{ old('description') }}')
+                    // Pass Alpine context to Livewire's
+                    const $this = this;
+                    // On reinit, destroy the old instance and create a new one
+                    Livewire.on('reinit', async function(e) {
+                        editor.setData('');
+                        editor.destroy()
+                            .catch(error => {
+                                console.log(error);
+                            });
+                        await $this.create($dispatch);
+                    });
+                }
+            }
+        }
+    </script>
 </body>
 
 </html>
