@@ -1,8 +1,9 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminProfileController;
+use App\Http\Controllers\Admin\BabiesController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\BabiesController;
+use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\BabyRequestsController;
 use App\Http\Controllers\UserProfileController;
 use Illuminate\Support\Facades\Auth;
@@ -27,26 +28,30 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get("baby/{id}/{firstName}",[BabyRequestsController::class,"show"])->name("baby.show");
+Route::get("baby/{id}/{firstName}", [BabyRequestsController::class, "show"])->name("baby.show");
 
-Route::middleware(["auth","role:user"])->name("user.")->group(function(){
+Route::middleware(["auth", "role:user"])->name("user.")->group(function () {
 
-    Route::get("profile",[UserProfileController::class, "index"])->name("profile");
-    Route::put("profile",[UserProfileController::class, "update"])->name("profile.update");
-
-    Route::resource("baby-requests",BabyRequestsController::class);
-
-
+    Route::get("profile", [UserProfileController::class, "index"])->name("profile");
+    Route::put("profile", [UserProfileController::class, "update"])->name("profile.update");
 });
 
+Route::middleware("auth")->name("user.")->group(function () {
+    Route::resource("baby-requests", BabyRequestsController::class);
+});
 
 
 Route::middleware(["auth", "role:admin"])->prefix("admin")->name("admin.")->group(function () {
 
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    Route::get("profile",[AdminProfileController::class, "index"])->name("profile");
-    Route::put("profile",[AdminProfileController::class, "update"])->name("profile.update");
-    Route::put("profile/password",[AdminProfileController::class, "updatePassword"])->name("profile.update-password");
+    Route::get("profile", [AdminProfileController::class, "index"])->name("profile");
+    Route::put("profile", [AdminProfileController::class, "update"])->name("profile.update");
+    Route::put("profile/password", [AdminProfileController::class, "updatePassword"])->name("profile.update-password");
 
+    Route::resource('users', UsersController::class);
+
+    Route::resource('babies', BabiesController::class);
 });

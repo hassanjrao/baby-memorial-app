@@ -247,21 +247,30 @@
                 <div class="content-side">
                     <ul class="nav-main">
                         <li class="nav-main-item">
-                            <a class="nav-main-link{{ request()->is('dashboard') || request()->is('admin/dashboard') ? ' active' : '' }}"
+                            <a class="nav-main-link{{ request()->is('dashboard') || request()->is('admin/dashboard') || request()->is('admin') ? ' active' : '' }}"
                                 href="{{ route('admin.dashboard') }}">
                                 <i class="nav-main-link-icon si si-cursor"></i>
                                 <span class="nav-main-link-name">Dashboard</span>
                             </a>
                         </li>
 
-                        {{-- <li class="nav-main-item">
-                            <a class="nav-main-link{{ request()->is('admin/specialities') ? ' active' : '' }}"
-                                href="{{ route('admin.specialities.index') }}">
-                                <i class="nav-main-link-icon si si-magic-wand"></i>
-                                <span class="nav-main-link-name">Specialities</span>
+                       <li class="nav-main-item">
+                            <a class="nav-main-link{{ request()->is('admin/users') ? ' active' : '' }}"
+                                href="{{ route('admin.users.index') }}">
+                                <i class="nav-main-link-icon si si-users"></i>
+                                <span class="nav-main-link-name">Users</span>
                             </a>
                         </li>
 
+                        <li class="nav-main-item">
+                            <a class="nav-main-link{{ request()->is('admin/babies') ? ' active' : '' }}"
+                                href="{{ route('admin.babies.index') }}">
+                                <i class="nav-main-link-icon fa fa-baby"></i>
+                                <span class="nav-main-link-name">Babies</span>
+                            </a>
+                        </li>
+
+                         {{--
                         <li class="nav-main-item">
                             <a class="nav-main-link{{ request()->is('admin/types') ? ' active' : '' }}"
                                 href="{{ route('admin.types.index') }}">

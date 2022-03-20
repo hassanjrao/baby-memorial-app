@@ -56,7 +56,7 @@ class CreateBabyRequest extends Component
         ]);
 
         if ($this->image) {
-            $file = $this->image->store("babies");
+            $file = $this->image->store("public/babies");
 
             $baby->update([
                 "image" => basename($file)

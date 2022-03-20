@@ -129,8 +129,8 @@
                     <div class="col-lg-4 col-md-6">
                         <h3 class="text-white mb-4">Quick Links</h3>
                         <a class="btn btn-link text-white-50" href="">About Us</a>
-                        <a class="btn btn-link text-white-50" href="">Contact Us</a>
-                        <a class="btn btn-link text-white-50" href="">Our Services</a>
+                        {{-- <a class="btn btn-link text-white-50" href="">Contact Us</a> --}}
+                        {{-- <a class="btn btn-link text-white-50" href="">Our Services</a> --}}
                         <a class="btn btn-link text-white-50" href="">Privacy Policy</a>
                         <a class="btn btn-link text-white-50" href="">Terms & Condition</a>
                     </div>
@@ -139,7 +139,7 @@
                         <h3 class="text-white mb-4">Newsletter</h3>
                         <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
                         <div class="position-relative mx-auto" style="max-width: 400px">
-                            <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text"
+                            <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5 text-white" type="text"
                                 placeholder="Your email" />
                             <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">
                                 SignUp
@@ -159,7 +159,7 @@
                         </div>
                         <div class="col-md-6 text-center text-md-end">
                             <div class="footer-menu">
-                                <a href="">Home</a>
+                                <a href="{{ route("home") }}">Home</a>
                                 <a href="">Cookies</a>
                                 <a href="">Help</a>
                                 <a href="">FQAs</a>
@@ -190,7 +190,7 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @include('sweetalert::alert')
     <script src="https://cdn.ckeditor.com/ckeditor5/26.0.0/classic/ckeditor.js"></script>
-    
+
     <script>
         function confirmDelete(id) {
             Swal.fire({

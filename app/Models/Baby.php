@@ -12,6 +12,8 @@ class Baby extends Model
 
     protected $guarded=[];
 
+    protected $dates=["birthDate","deathDate"];
+
     protected function firstName(): Attribute
     {
         return Attribute::make(

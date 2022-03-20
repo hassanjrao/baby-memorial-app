@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Baby;
+use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class BabyRequestsController extends Controller
+class UsersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,9 @@ class BabyRequestsController extends Controller
      */
     public function index()
     {
+        $users=User::all();
 
-        return view("user.baby-requests.index");
+        return view("admin.users.index",compact("users"));
     }
 
     /**
@@ -45,11 +47,9 @@ class BabyRequestsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id,$firstName)
+    public function show($id)
     {
-        $baby=Baby::findorfail($id);
-
-        return view("baby",compact("baby"));
+        //
     }
 
     /**
@@ -83,6 +83,10 @@ class BabyRequestsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user=User::findorfail($id);
+
+        $user->delete();
+
+        return redirect()->route("admin.users.index");
     }
 }

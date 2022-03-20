@@ -21,7 +21,7 @@
                                     rebum sea elitr.
                                 </p>
 
-                                <a href="" class="btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight">Our
+                                <a href="{{ route("register") }}" class="btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight">Our
                                     Sign Up</a>
                             </div>
                         </div>
@@ -153,19 +153,26 @@
                         <div class="classes-item">
 
                             <div class="bg-light rounded-circle w-75 mx-auto p-3">
-                                <img class="img-fluid rounded-circle" src="{{ asset('front-asset/img/baby-3.jpg') }}"
-                                    alt="Baby Image" />
+                                @if ($baby->image)
+                                    <img class=" rounded-circle" src="{{ asset('storage/babies/' . $baby->image) }}"
+                                        alt="Baby Image" width="100%" height="250px" />
+                                @else
+                                    <img class=" rounded-circle" src="{{ asset('front-asset/img/baby-1.jpg') }}"
+                                        alt="Baby Image" width="100%" height="250px" />
+                                @endif
                             </div>
                             <div class="bg-light rounded p-4 pt-5 mt-n5">
-                                <a class="d-block text-center h3 mt-3 mb-4" href="{{ route("baby.show",[$baby->id,$baby->first_name]) }}">{{ $baby->fullName() }}</a>
+                                <a class="d-block text-center h3 mt-3 mb-4"
+                                    href="{{ route('baby.show', [$baby->id, $baby->first_name]) }}">{{ $baby->fullName() }}</a>
                                 <div class="d-flex align-items-center justify-content-between mb-4">
                                     <div class="d-flex align-items-center flex-column ">
                                         <p>
                                             {{ $baby->storyDescription() }}
                                         </p>
 
-                                        <a href="{{ route("baby.show",[$baby->id,$baby->first_name]) }}" class="btn btn-primary btn-xs rounded-pill">Read More<i
-                                            class="fa fa-arrow-right ms-3"></i></a>
+                                        <a href="{{ route('baby.show', [$baby->id, $baby->first_name]) }}"
+                                            class="btn btn-primary btn-xs rounded-pill">Read More<i
+                                                class="fa fa-arrow-right ms-3"></i></a>
                                     </div>
                                 </div>
                             </div>
