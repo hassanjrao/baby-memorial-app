@@ -1,5 +1,5 @@
 @extends("layouts.admin-backend")
-@section("page-title", "Users - Admin")
+@section('page-title', 'Users - Admin')
 @section('css_before')
     <!-- Page JS Plugins CSS -->
     <link rel="stylesheet" href="{{ asset('js/plugins/datatables-bs5/dataTables.bootstrap5.min.css') }}">
@@ -92,26 +92,27 @@
                     </thead>
                     <tbody>
                         @foreach ($users as $ind => $user)
-                            <tr>
-                                <td>{{ ++$ind }}</td>
-                                <td>{{ $user->name }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td>
-                                    <div class="btn-group" role="group" aria-label="Horizontal Primary">
-                                        {{-- <a href="{{ route('admin.users.edit', $user->id) }}"
+                            @if ($user->hasRole('user'))
+                                <tr>
+                                    <td>{{ ++$ind }}</td>
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->email }}</td>
+                                    <td>
+                                        <div class="btn-group" role="group" aria-label="Horizontal Primary">
+                                            {{-- <a href="{{ route('admin.users.edit', $user->id) }}"
                                             class="btn btn-sm btn-alt-primary">Edit</a> --}}
-                                        <form id="form-{{ $user->id }}"
-                                            action="{{ route('admin.users.destroy', $user->id) }}"
-                                            method="POST">
-                                            @method("DELETE")
-                                            @csrf
-                                            <input type="button" onclick="confirmDelete({{ $user->id }})"
-                                                class="btn btn-sm btn-alt-danger" value="Delete">
+                                            <form id="form-{{ $user->id }}"
+                                                action="{{ route('admin.users.destroy', $user->id) }}" method="POST">
+                                                @method("DELETE")
+                                                @csrf
+                                                <input type="button" onclick="confirmDelete({{ $user->id }})"
+                                                    class="btn btn-sm btn-alt-danger" value="Delete">
 
-                                        </form>
-                                    </div>
-                                </td>
-                            </tr>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endif
                         @endforeach
                     </tbody>
                 </table>

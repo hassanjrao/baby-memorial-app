@@ -27,7 +27,7 @@ class BabiesController extends Controller
      */
     public function create()
     {
-        //
+        return view("admin.babies.create");
     }
 
     /**
@@ -60,7 +60,9 @@ class BabiesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $baby=Baby::findorfail($id);
+
+        return view("admin.babies.edit",compact("baby"));
     }
 
     /**
@@ -83,6 +85,10 @@ class BabiesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $baby=Baby::findorfail($id);
+
+        $baby->delete();
+
+        return redirect()->route("admin.babies.index")->withToastSuccess("Deleted successfully");
     }
 }

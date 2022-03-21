@@ -8,7 +8,7 @@
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px">
                 <h1 class="mb-3">{{ $baby->fullName() }}</h1>
 
-                <h4>{{ $baby->birthDate->format("d M, Y") }} to {{ $baby->deathDate->format("d M, Y") }}</h4>
+                <h4>{{ $baby->birth_date }} to {{ $baby->death_date }}</h4>
 
             </div>
 

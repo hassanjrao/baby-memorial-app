@@ -12,7 +12,7 @@ class Baby extends Model
 
     protected $guarded=[];
 
-    protected $dates=["birthDate","deathDate"];
+    // protected $dates=["birth_date","death_date"];
 
     protected function firstName(): Attribute
     {
@@ -40,7 +40,13 @@ class Baby extends Model
     }
 
     public function storyDescription(){
-        return substr($this->story, 0, 200) . "...";
+        if(strlen(strip_tags($this->story)) > 100){
+            return substr(strip_tags($this->story), 0, 50) . "...";
+        }
+        else{
+            return strip_tags($this->story);
+        }
+
     }
 
     public function user()

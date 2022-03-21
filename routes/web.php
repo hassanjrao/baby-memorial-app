@@ -30,6 +30,10 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 
 Route::get("baby/{id}/{firstName}", [BabyRequestsController::class, "show"])->name("baby.show");
 
+Route::get("about-us", function () {
+    return view("about");
+})->name("about-us");
+
 Route::middleware(["auth", "role:user"])->name("user.")->group(function () {
 
     Route::get("profile", [UserProfileController::class, "index"])->name("profile");
@@ -54,4 +58,6 @@ Route::middleware(["auth", "role:admin"])->prefix("admin")->name("admin.")->grou
     Route::resource('users', UsersController::class);
 
     Route::resource('babies', BabiesController::class);
+
+
 });

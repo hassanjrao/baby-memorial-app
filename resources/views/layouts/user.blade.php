@@ -31,6 +31,13 @@
 
     <!-- Template Stylesheet -->
     <link href="{{ asset('front-asset/css/style1.css') }}" rel="stylesheet" />
+
+    <style>
+        .ck-editor__editable_inline {
+            min-height: 200px;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.1/dist/alpine.min.js" defer></script>
     @livewireStyles
 </head>
 
@@ -58,7 +65,7 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav mx-auto">
                     <a href="{{ route("home") }}" class="nav-item nav-link active">Home</a>
-                    <a href="about.html" class="nav-item nav-link">About Us</a>
+                    <a href="{{ route("about-us") }}" class="nav-item nav-link">About Us</a>
                     @auth
                         <a href="{{ route("user.profile") }}" class="nav-item nav-link">Profile</a>
                         <a href="{{ route("user.baby-requests.index") }}" class="nav-item nav-link">Requests</a>

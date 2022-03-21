@@ -6,7 +6,7 @@
         </div>
         <div class="">
             <div class="row g-0 justify-content-center">
-                <div class="col-lg-8 wow fadeIn" data-wow-delay="0.1s">
+                <div class="col-lg-10 wow fadeIn" data-wow-delay="0.1s">
                     <div class="h-100 d-flex flex-column justify-content-center p-5">
                         <form wire:submit.prevent='submitRequest'>
 
@@ -52,7 +52,7 @@
 
                                         <div class="row g-3">
 
-                                            <div class="col-sm-4">
+                                            <div class="col-sm-4 ">
                                                 <div class="form-floating">
                                                     <input type="text"
                                                         class="form-control border-0 @error('firstName') is-invalid @enderror"
@@ -65,7 +65,7 @@
                                                     @enderror
                                                 </div>
                                             </div>
-                                            <div class="col-sm-4">
+                                            <div class="col-sm-4 ">
                                                 <div class="form-floating">
                                                     <input type="text"
                                                         class="form-control border-0 @error('middleName') is-invalid @enderror"
@@ -79,7 +79,7 @@
                                                     @enderror
                                                 </div>
                                             </div>
-                                            <div class="col-sm-4">
+                                            <div class="col-sm-4 ">
                                                 <div class="form-floating">
                                                     <input type="text"
                                                         class="form-control border-0 @error('lastName') is-invalid @enderror"
@@ -145,7 +145,8 @@
                                                 <div class="form-floating">
                                                     <input type="date"
                                                         class="form-control border-0 @error('deathDate') is-invalid @enderror"
-                                                        wire:model="deathDate" id="deathDate" placeholder="Date of Death">
+                                                        wire:model="deathDate" id="deathDate"
+                                                        placeholder="Date of Death">
                                                     <label for="deathDate">Date of Death</label>
                                                     @error('deathDate')
                                                         <span class="invalid-feedback" role="alert">
@@ -156,21 +157,23 @@
                                             </div>
 
                                             <div class="col-sm-12">
-                                                <div class="form-floating">
 
-                                                    <textarea wire:model="story" id="story"
-                                                        class="form-control h-25 @error('story') is-invalid @enderror"
-                                                        placeholder="Enter your story..." cols="30"
-                                                        rows="3"></textarea>
+                                                <label for="story">Story</label>
+                                                <div wire:ignore>
+                                                    <textarea x-data="ckeditor()" x-init="init($dispatch)" wire:key="ckEditor" x-ref="ckEditor"
+                                                        wire:model.debounce.9999999ms="story"
+                                                        class="form-control @error('story') is-invalid @enderror">The Story...</textarea>
 
-                                                    <label for="story">Story</label>
-                                                    @error('story')
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
-                                                    @enderror
                                                 </div>
+
+                                                @error('story')
+                                                    <span class="text-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+
                                             </div>
+
 
                                             <div class="col-sm-12">
                                                 <div class="form-floating">

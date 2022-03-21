@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Http\Livewire\BabyRequests;
+namespace App\Http\Livewire\Admin\Babies;
 
 use App\Models\Baby;
-use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
-class CreateBabyRequest extends Component
+class CreateBaby extends Component
 {
+
     use WithFileUploads;
 
     public $image;
+    public $oldimage;
     public $firstName;
     public $middleName;
     public $lastName;
@@ -24,7 +25,7 @@ class CreateBabyRequest extends Component
 
 
     protected $rules = [
-        "image" => "nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048",
+        "image" => "nullable|image|mimes:jpg,png,jpeg,gif,svg",
         "firstName" => "required|string|max:255",
         "middleName" => "nullable|string|max:255",
         "lastName" => "nullable|string|max:255",
@@ -33,10 +34,11 @@ class CreateBabyRequest extends Component
         "birthDate" => "required|date",
         "deathDate" => "required|date",
         "story" => "required|string|min:5",
+
     ];
 
 
-    public function submitRequest()
+    public function addRequest()
     {
 
         $this->validate();
@@ -72,6 +74,6 @@ class CreateBabyRequest extends Component
 
     public function render()
     {
-        return view('livewire.baby-requests.create-baby-request');
+        return view('livewire.admin.babies.create-baby');
     }
 }

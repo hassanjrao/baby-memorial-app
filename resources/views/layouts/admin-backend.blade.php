@@ -29,6 +29,11 @@
 
     <!-- You can include a specific file from public/css/themes/ folder to alter the default color theme of the template. eg: -->
     <!-- <link rel="stylesheet" id="css-theme" href="{{ asset('/css/themes/amethyst.css') }}"> -->
+    <style>
+        .ck-editor__editable_inline {
+            min-height: 200px;
+        }
+    </style>
 
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.1/dist/alpine.min.js" defer></script>
     @livewireStyles
@@ -560,6 +565,7 @@
 
     @yield('js_after')
 
+    @stack('js')
 
 
     <script>
@@ -623,6 +629,7 @@
                     // Get an editor instance
                     const editor = await this.create($dispatch);
                     // Set the initial data
+
                     editor.setData('{{ old('description') }}')
                     // Pass Alpine context to Livewire's
                     const $this = this;
@@ -638,6 +645,8 @@
                 }
             }
         }
+
+
     </script>
 </body>
 
