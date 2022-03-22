@@ -108,6 +108,10 @@
                                     <td>{{ $baby->storyDescription() }}</td>
                                     <td>
                                         <div class="btn-group" role="group" aria-label="Horizontal Primary">
+
+                                            <a target="_blank" href="{{ route('baby.show', [$baby->id,$baby->first_name]) }}"
+                                                class="btn btn-sm btn-alt-success">View</a>
+
                                             <a href="{{ route('admin.babies.edit', $baby->id) }}"
                                             class="btn btn-sm btn-alt-primary">Edit</a>
                                             <form id="form-{{ $baby->id }}"

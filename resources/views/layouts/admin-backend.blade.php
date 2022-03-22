@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
-    <title>@yield('page-title',"Admin Panel -Quiz App")</title>
+    <title>@yield('page-title',"Admin Panel")</title>
 
     <meta name="description"
         content="OneUI - Bootstrap 5 Admin Template &amp; UI Framework created by pixelcave and published on Themeforest">
@@ -538,7 +538,7 @@
                             href="https://fiverr.com/hassanjavaidrao" target="_blank">hassanjrao</a>
                     </div>
                     <div class="col-sm-6 order-sm-1 py-1 text-center text-sm-start">
-                        <a class="fw-semibold" href="https://1.envato.market/AVD6j" target="_blank">Quiz App</a>
+                        <a class="fw-semibold" href="#" target="_blank">Site Name</a>
                         &copy;
                         <span data-toggle="year-copy"></span>
                     </div>

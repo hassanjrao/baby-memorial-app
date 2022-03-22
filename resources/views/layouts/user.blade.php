@@ -90,7 +90,6 @@
                 </div>
                 @auth
 
-
                     <a class="btn btn-primary rounded-pill px-3 d-none d-lg-block"
                         onclick="document.getElementById('logout-form').submit()">
                         Logout<i class="fa fa-arrow-right ms-3"></i></a>
