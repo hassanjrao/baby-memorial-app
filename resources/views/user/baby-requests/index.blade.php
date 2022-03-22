@@ -1,8 +1,14 @@
-@extends('layouts.user')
-
-@section('page-title', 'Profile')
+@extends("layouts.user")
+@section('page-title', 'Nursery')
 
 @section('content')
 
-<livewire:baby-requests.create-baby-request>
+
+
+
+
+
+    <!-- Classes Start -->
+   <livewire:baby-requests.all-babies>
+    <!-- Classes End -->
 @endsection

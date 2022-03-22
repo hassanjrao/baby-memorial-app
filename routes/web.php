@@ -30,6 +30,8 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 
 Route::get("baby/{id}/{firstName}", [BabyRequestsController::class, "show"])->name("baby.show");
 
+Route::get("nursery", [BabyRequestsController::class, "index"])->name("baby.index");
+
 Route::get("about-us", function () {
     return view("about");
 })->name("about-us");

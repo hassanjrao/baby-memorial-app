@@ -36,6 +36,7 @@
         .ck-editor__editable_inline {
             min-height: 200px;
         }
+
     </style>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.1/dist/alpine.min.js" defer></script>
     @livewireStyles
@@ -54,7 +55,7 @@
 
         <!-- Navbar Start -->
         <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0">
-            <a href="{{ route("home") }}" class="navbar-brand">
+            <a href="{{ route('home') }}" class="navbar-brand">
                 <h1 class="m-0 text-primary">
                     <i class="fa fa-book-reader me-3"></i>Site name
                 </h1>
@@ -64,11 +65,12 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav mx-auto">
-                    <a href="{{ route("home") }}" class="nav-item nav-link active">Home</a>
-                    <a href="{{ route("about-us") }}" class="nav-item nav-link">About Us</a>
+                    <a href="{{ route('home') }}" class="nav-item nav-link active">Home</a>
+                    <a href="{{ route('about-us') }}" class="nav-item nav-link">About Us</a>
+                    <a href="{{ route('baby.index') }}" class="nav-item nav-link">Nursery</a>
                     @auth
-                        <a href="{{ route("user.profile") }}" class="nav-item nav-link">Profile</a>
-                        <a href="{{ route("user.baby-requests.index") }}" class="nav-item nav-link">Requests</a>
+                        <a href="{{ route('user.profile') }}" class="nav-item nav-link">Profile</a>
+                        <a href="{{ route('user.baby-requests.index') }}" class="nav-item nav-link">Submit Request</a>
                     @endauth
 
                     {{-- <div class="nav-item dropdown">
@@ -97,7 +99,7 @@
                 @endauth
 
                 @guest
-                    <a href="{{ route("login") }}" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">Login<i
+                    <a href="{{ route('login') }}" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">Login<i
                             class="fa fa-arrow-right ms-3"></i></a>
                 @endguest
             </div>
@@ -166,7 +168,7 @@
                         </div>
                         <div class="col-md-6 text-center text-md-end">
                             <div class="footer-menu">
-                                <a href="{{ route("home") }}">Home</a>
+                                <a href="{{ route('home') }}">Home</a>
                                 <a href="">Cookies</a>
                                 <a href="">Help</a>
                                 <a href="">FQAs</a>

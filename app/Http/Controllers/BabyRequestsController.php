@@ -14,8 +14,8 @@ class BabyRequestsController extends Controller
      */
     public function index()
     {
-
         return view("user.baby-requests.index");
+
     }
 
     /**
@@ -25,7 +25,7 @@ class BabyRequestsController extends Controller
      */
     public function create()
     {
-        //
+        return view("user.baby-requests.create");
     }
 
     /**

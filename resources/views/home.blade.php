@@ -149,7 +149,7 @@
             </div>
             <div class="row g-4">
                 @foreach ($babies as $baby)
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="col-lg-4 col-md-6 wow fadeInUp mb-3" data-wow-delay="0.1s">
                         <div class="classes-item">
 
                             <div class="bg-light rounded-circle w-75 mx-auto p-3">
@@ -161,7 +161,7 @@
                                         alt="Baby Image" width="100%" height="250px" />
                                 @endif
                             </div>
-                            <div class="bg-light rounded p-4 pt-5 mt-n5">
+                            <div class="bg-light rounded p-4 pt-5 mt-n5" style="height: 340px">
                                 <a class="d-block text-center h3 mt-3 mb-4"
                                     href="{{ route('baby.show', [$baby->id, $baby->first_name]) }}">{{ $baby->fullName() }}</a>
                                 <div class="d-flex align-items-center justify-content-between mb-4">
@@ -187,7 +187,7 @@
 
             <div class="row justify-content-center mt-5">
                 <div class="col-lg-4 col-md-6 wow fadeInUp text-center" data-wow-delay="0.1s">
-                    <a href="{{ route('login') }}" class="btn btn-primary rounded-pill d-lg-block">View All Stories<i
+                    <a href="{{ route('baby.index') }}" class="btn btn-primary rounded-pill d-lg-block">View All Stories<i
                             class="fa fa-arrow-right ms-3"></i></a>
                 </div>
             </div>
