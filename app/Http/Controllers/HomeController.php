@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $babies=Baby::latest()->get()->take(6);
+        $babies=Baby::latest()->where("approved",1)->get()->take(6);
         return view('home',compact('babies'));
     }
 }

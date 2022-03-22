@@ -38,6 +38,7 @@
                                 <th class="text-center" style="width: 80px;">#</th>
 
                                 <th>Submitted By</th>
+                                <th>Approved</th>
                                 <th>First Name</th>
                                 <th>Middle Name</th>
                                 <th>Last Name</th>
@@ -55,6 +56,16 @@
                                 <tr>
                                     <td>{{ ++$ind }}</td>
                                     <td>{{ $baby->user->name }}</td>
+                                    <td>
+                                        @if ($baby->approved == 1)
+                                            <span class="badge btn btn-xs rounded-pill bg-primary"><i
+                                                    class="fa fa-check"></i>
+                                                Approved</span>
+                                        @else
+                                            <span class="badge rounded-pill bg-danger"><i class="fa fa-hourglass-half"></i>
+                                                Pending</span>
+                                        @endif
+                                    </td>
                                     <td>{{ $baby->first_name }}</td>
                                     <td>{{ $baby->middle_name }}</td>
                                     <td>{{ $baby->last_name }}</td>

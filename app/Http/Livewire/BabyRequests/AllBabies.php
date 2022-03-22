@@ -16,7 +16,7 @@ class AllBabies extends Component
 
     public function render()
     {
-        $babies=Baby::latest()->paginate(9);
+        $babies=Baby::latest()->where("approved",1)->paginate(9);
         return view('livewire.baby-requests.all-babies',compact('babies'));
     }
 }

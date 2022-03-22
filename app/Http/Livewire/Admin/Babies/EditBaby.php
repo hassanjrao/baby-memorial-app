@@ -31,6 +31,7 @@ class EditBaby extends Component
         "baby.death_date" => "required|date",
         "baby.story" => "required|string|min:5",
         "baby.in_tshirts" => "nullable|boolean",
+        "baby.approved" => "nullable|boolean",
         "image" => "nullable|image|mimes:jpg,png,jpeg,gif,svg",
 
     ];

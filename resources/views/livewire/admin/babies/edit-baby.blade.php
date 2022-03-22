@@ -1,6 +1,6 @@
 <div class="content">
 
-    <a href="{{ route("admin.babies.index") }}" class="btn btn-primary push" >Back to All</a>
+    <a href="{{ route('admin.babies.index') }}" class="btn btn-primary push">Back to All</a>
 
 
     <div class="block block-rounded">
@@ -41,7 +41,8 @@
                         @elseif($oldimage)
                             <p>Click On Image to Download</p>
                             {{-- <button wire:click="export" class="btn btn-xs btn-alt-success float-right">Download Image</button> --}}
-                            <img style="cursor: pointer" wire:click="export" src="{{ asset('storage/babies/' . $oldimage) }}" width="100%" height="250px" >
+                            <img style="cursor: pointer" wire:click="export"
+                                src="{{ asset('storage/babies/' . $oldimage) }}" width="100%" height="250px">
                         @endif
 
                     </div>
@@ -170,7 +171,7 @@
                         @enderror
                     </div>
 
-                    <div class="col-sm-12">
+                    <div class="col-sm-12 mb-4">
 
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" id="baby.in_tshirts"
@@ -181,8 +182,14 @@
 
                     </div>
 
+                    <div class="col-sm-6">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" wire:model="baby.approved" id="flexSwitchCheckChecked" checked>
+                            <label class="form-check-label" for="flexSwitchCheckChecked">Approved</label>
+                        </div>
+                    </div>
 
-                    <div class="col-lg-12 text-end">
+                    <div class="col-sm-6 text-end">
 
                         <button type="submit" class="btn btn-alt-primary" wire:loading.attr='disabled'>
                             <div wire:loading wire:target='updateRequest'>

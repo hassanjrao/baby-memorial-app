@@ -165,7 +165,7 @@
                         @enderror
                     </div>
 
-                    <div class="col-sm-12">
+                    <div class="col-sm-12 mb-4">
 
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" id="inTshirts" wire:model='inTshirts'>
@@ -175,8 +175,15 @@
 
                     </div>
 
+                    <div class="col-sm-6">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" wire:model="approved" id="flexSwitchCheckChecked" checked>
+                            <label class="form-check-label" for="flexSwitchCheckChecked">Approved</label>
+                        </div>
+                    </div>
 
-                    <div class="col-lg-12 text-end">
+
+                    <div class="col-sm-6 text-end">
 
                         <button type="submit" class="btn btn-alt-primary" wire:loading.attr='disabled'>
                             <div wire:loading wire:target='addRequest'>

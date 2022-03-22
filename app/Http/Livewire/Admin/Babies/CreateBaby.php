@@ -22,6 +22,7 @@ class CreateBaby extends Component
     public $deathDate;
     public $story;
     public $inTshirts;
+    public $approved=false;
 
 
     protected $rules = [
@@ -34,6 +35,7 @@ class CreateBaby extends Component
         "birthDate" => "required|date",
         "deathDate" => "required|date",
         "story" => "required|string|min:5",
+        "approved"=>"nullable|boolean",
 
     ];
 
@@ -46,6 +48,7 @@ class CreateBaby extends Component
 
         $baby = Baby::create([
             "user_id" => auth()->user()->id,
+            "approved" => $this->approved,
             "first_name" => $this->firstName,
             "middle_name" => $this->middleName,
             "last_name" => $this->lastName,
