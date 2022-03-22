@@ -20,6 +20,8 @@ class EditBaby extends Component
 
     public $content="asdasda";
 
+    public $approved=false;
+
 
     protected $rules = [
         "baby.first_name" => "required|string|max:255",
@@ -31,7 +33,7 @@ class EditBaby extends Component
         "baby.death_date" => "required|date",
         "baby.story" => "required|string|min:5",
         "baby.in_tshirts" => "nullable|boolean",
-        "baby.approved" => "nullable|boolean",
+        "approved" => "nullable|boolean",
         "image" => "nullable|image|mimes:jpg,png,jpeg,gif,svg",
 
     ];
@@ -61,6 +63,10 @@ class EditBaby extends Component
 
 
         $this->baby->save();
+
+        $this->baby->update([
+            "approved"=>$this->approved ?1:0,
+        ]);
 
         if ($this->image) {
             $file = $this->image->store("public/babies");

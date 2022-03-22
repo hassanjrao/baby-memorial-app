@@ -184,7 +184,7 @@
 
                     <div class="col-sm-6">
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" wire:model="baby.approved" id="flexSwitchCheckChecked" checked>
+                            <input class="form-check-input" type="checkbox" wire:model="approved" id="flexSwitchCheckChecked" checked>
                             <label class="form-check-label" for="flexSwitchCheckChecked">Approved</label>
                         </div>
                     </div>
