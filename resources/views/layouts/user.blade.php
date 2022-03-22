@@ -69,8 +69,10 @@
                     <a href="{{ route('about-us') }}" class="nav-item nav-link">About Us</a>
                     <a href="{{ route('baby.index') }}" class="nav-item nav-link">Nursery</a>
                     @auth
-                        <a href="{{ route('user.profile') }}" class="nav-item nav-link">Profile</a>
-                        <a href="{{ route('user.baby-requests.index') }}" class="nav-item nav-link">Submit Request</a>
+                        @if (auth()->user()->hasRole('user'))
+                            <a href="{{ route('user.profile') }}" class="nav-item nav-link">Profile</a>
+                        @endif
+                        <a href="{{ route('user.baby-requests.create') }}" class="nav-item nav-link">Submit Request</a>
                     @endauth
 
                     {{-- <div class="nav-item dropdown">
