@@ -48,7 +48,7 @@ class CreateBaby extends Component
 
         $baby = Baby::create([
             "user_id" => auth()->user()->id,
-            "approved" => $this->approved,
+            "approved" => $this->approved ?1:0,
             "first_name" => $this->firstName,
             "middle_name" => $this->middleName,
             "last_name" => $this->lastName,
