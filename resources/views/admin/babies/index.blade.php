@@ -9,7 +9,7 @@
 
 
 @section('content')
-  
+
 
     <!-- Page Content -->
     <div class="content">
@@ -80,8 +80,8 @@
                                         @endif
                                     </td>
 
-                                    <td>{{ $baby->birthDate }}</td>
-                                    <td>{{ $baby->deathDate }}</td>
+                                    <td>{{ $baby->birth_date }}</td>
+                                    <td>{{ $baby->death_date }}</td>
                                     <td>
 
                                         @if ($baby->in_tshirts == 1)

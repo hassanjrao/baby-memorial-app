@@ -1,5 +1,5 @@
 @extends("layouts.admin-backend")
-@section('page-title', 'Add baby - Admin')
+@section('page-title', 'Edit baby - Admin')
 @section('css_before')
 
 

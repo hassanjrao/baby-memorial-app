@@ -1,5 +1,7 @@
 <div class="content">
 
+    <a href="{{ route("admin.babies.index") }}" class="btn btn-primary push" >Back to All</a>
+
 
     <div class="block block-rounded">
         <div class="block-header block-header-default">
