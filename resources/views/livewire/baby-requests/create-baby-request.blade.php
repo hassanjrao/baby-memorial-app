@@ -113,7 +113,7 @@
                                             <div class="col-sm-6">
                                                 <div class="">
                                                     <select wire:model="twinMultiple" class="form-select p-2">
-                                                        <option value="">Twin/Multiple</option>
+                                                        <option value=""></option>
 
                                                         <option value="twin">Twin</option>
                                                         <option value="multiple">Multiple</option>

@@ -114,9 +114,10 @@
                             <label for="baby.twin_multiple">Twin/Multiple</label>
                             <select wire:ignore class="form-select" id="baby.twin_multiple"
                                 wire:model="baby.twin_multiple">
-                                <option value="">Twin/Multiple</option>
+                                <option value=""></option>
                                 <option value="twin">Twin</option>
                                 <option value="multiple">Multiple</option>
+
                             </select>
                         </div>
                         @error('baby.twin_multiple')

@@ -28,7 +28,7 @@ class EditBaby extends Component
         "baby.middle_name" => "nullable|string|max:255",
         "baby.last_name" => "nullable|string|max:255",
         "baby.gender" => "required",
-        "baby.twin_multiple" => "required",
+        "baby.twin_multiple" => "nullable",
         "baby.birth_date" => "required",
         "baby.death_date" => "required",
         "baby.story" => "required|string|min:5",

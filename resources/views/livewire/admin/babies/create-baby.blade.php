@@ -107,7 +107,7 @@
                         <div class="form-group">
                             <label for="twinMultiple">Twin/Multiple</label>
                             <select wire:ignore class="form-select" id="twinMultiple" wire:model="twinMultiple">
-                                <option value="">Twin/Multiple</option>
+                                <option value=""></option>
                                 <option value="twin">Twin</option>
                                 <option value="multiple">Multiple</option>
                             </select>

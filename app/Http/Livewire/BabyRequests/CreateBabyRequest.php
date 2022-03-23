@@ -29,7 +29,7 @@ class CreateBabyRequest extends Component
         "middleName" => "nullable|string|max:255",
         "lastName" => "nullable|string|max:255",
         "gender" => "required",
-        "twinMultiple" => "required",
+        "twinMultiple" => "nullable",
         "birthDate" => "required",
         "deathDate" => "required",
         "story" => "required|string|min:5",

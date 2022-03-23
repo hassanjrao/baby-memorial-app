@@ -17,7 +17,7 @@
 
 
 
-        <a href="{{ route("admin.babies.create") }}" class="btn btn-primary push" >Add Baby</a>
+        <a href="{{ route('admin.babies.create') }}" class="btn btn-primary push">Add Baby</a>
 
 
 
@@ -84,7 +84,7 @@
                                             <span class="badge btn btn-xs rounded-pill bg-success"><i
                                                     class="fa fa-fw fa-user-friends"></i>
                                                 Twin</span>
-                                        @else
+                                        @elseif ($baby->twin_multiple == 'multiple')
                                             <span class="badge rounded-pill bg-info"><i
                                                     class="fa fa-fw fa-user-friends"></i>
                                                 Multiple</span>
@@ -109,11 +109,12 @@
                                     <td>
                                         <div class="btn-group" role="group" aria-label="Horizontal Primary">
 
-                                            <a target="_blank" href="{{ route('baby.show', [$baby->id,$baby->first_name]) }}"
+                                            <a target="_blank"
+                                                href="{{ route('baby.show', [$baby->id, $baby->first_name]) }}"
                                                 class="btn btn-sm btn-alt-success">View</a>
 
                                             <a href="{{ route('admin.babies.edit', $baby->id) }}"
-                                            class="btn btn-sm btn-alt-primary">Edit</a>
+                                                class="btn btn-sm btn-alt-primary">Edit</a>
                                             <form id="form-{{ $baby->id }}"
                                                 action="{{ route('admin.babies.destroy', $baby->id) }}" method="POST">
                                                 @method("DELETE")
