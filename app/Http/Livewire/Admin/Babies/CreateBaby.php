@@ -32,8 +32,8 @@ class CreateBaby extends Component
         "lastName" => "nullable|string|max:255",
         "gender" => "required",
         "twinMultiple" => "required",
-        "birthDate" => "required|date",
-        "deathDate" => "required|date",
+        "birthDate" => "required",
+        "deathDate" => "required",
         "story" => "required|string|min:5",
         "approved"=>"nullable|boolean",
 

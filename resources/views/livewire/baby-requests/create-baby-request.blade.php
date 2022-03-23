@@ -128,7 +128,7 @@
 
                                             <div class="col-sm-6">
                                                 <div class="form-floating">
-                                                    <input type="date"
+                                                    <input type="text"
                                                         class="form-control border-0 @error('birthDate') is-invalid @enderror"
                                                         wire:model="birthDate" id="birthDate"
                                                         placeholder="Date of Birth">
@@ -143,7 +143,7 @@
 
                                             <div class="col-sm-6">
                                                 <div class="form-floating">
-                                                    <input type="date"
+                                                    <input type="text"
                                                         class="form-control border-0 @error('deathDate') is-invalid @enderror"
                                                         wire:model="deathDate" id="deathDate"
                                                         placeholder="Date of Death">

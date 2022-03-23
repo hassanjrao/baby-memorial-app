@@ -131,7 +131,7 @@
                         <div>
 
                             <label for="baby.birth_date">Date of Birth:</label>
-                            <input type="date" wire:model="baby.birth_date"
+                            <input type="text" wire:model="baby.birth_date"
                                 class="form-control @error('baby.birth_date') is-invalid @enderror" />
                         </div>
                         @error('baby.birth_date')
@@ -144,7 +144,7 @@
                     <div class="col-lg-6 mb-4">
                         <div>
                             <label for="baby.death_date">Date of Death</label>
-                            <input type="date" wire:model="baby.death_date"
+                            <input type="text" wire:model="baby.death_date"
                                 class="form-control @error('baby.death_date') is-invalid @enderror" />
                         </div>
                         @error('baby.death_date')
