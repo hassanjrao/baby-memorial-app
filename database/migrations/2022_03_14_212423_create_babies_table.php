@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('middle_name')->nullable();
             $table->string('last_name')->nullable();
+            $table->string('email')->nullable();
+            $table->string('relationship')->nullable();
 
             $table->string("gender");
             $table->string("twin_multiple");
@@ -31,7 +33,8 @@ return new class extends Migration
             $table->date("birthDate");
             $table->date("deathDate");
 
-            $table->text("story");
+            $table->text("story")->nullable();
+            $table->text("user_name")->nullable();
 
             $table->boolean("in_tshirts")->default(0)->comment("1 = yes, 0 = no");
 

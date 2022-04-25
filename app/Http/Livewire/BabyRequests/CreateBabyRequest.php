@@ -6,6 +6,8 @@ use App\Models\Baby;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Auth;
+
 
 class CreateBabyRequest extends Component
 {
@@ -15,6 +17,8 @@ class CreateBabyRequest extends Component
     public $firstName;
     public $middleName;
     public $lastName;
+    public $email;
+    public $relationship;
     public $gender;
     public $twinMultiple;
     public $birthDate;
@@ -28,11 +32,13 @@ class CreateBabyRequest extends Component
         "firstName" => "required|string|max:255",
         "middleName" => "nullable|string|max:255",
         "lastName" => "nullable|string|max:255",
+        "email" => "nullable|string|max:255",
+        "relationship" => "nullable|string|max:255",
         "gender" => "required",
         "twinMultiple" => "nullable",
         "birthDate" => "required",
         "deathDate" => "required",
-        "story" => "required|string|min:5",
+        "story" => "nullable|string|min:5",
     ];
 
 
@@ -41,18 +47,26 @@ class CreateBabyRequest extends Component
 
         $this->validate();
 
+        $status = 0;
+        if(Auth::user()->getRoleNames()[0] == "admin"){
+            $status = 1;
+        }
 
         $baby = Baby::create([
             "user_id" => auth()->user()->id,
+            "user_name" => auth()->user()->name,
             "first_name" => $this->firstName,
             "middle_name" => $this->middleName,
             "last_name" => $this->lastName,
+            "email" => $this->email,
+            "relationship" => $this->relationship,
             "gender" => $this->gender,
             "twin_multiple" => $this->twinMultiple,
             "birth_date" => $this->birthDate,
             "death_date" => $this->deathDate,
             "story" => $this->story,
             "in_tshirts" => $this->inTshirts,
+            "approved" => $status,
         ]);
 
         if ($this->image) {

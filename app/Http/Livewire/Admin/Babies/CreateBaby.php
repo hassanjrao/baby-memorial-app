@@ -16,6 +16,8 @@ class CreateBaby extends Component
     public $firstName;
     public $middleName;
     public $lastName;
+    public $email;
+    public $relationship;
     public $gender;
     public $twinMultiple;
     public $birthDate;
@@ -30,6 +32,8 @@ class CreateBaby extends Component
         "firstName" => "required|string|max:255",
         "middleName" => "nullable|string|max:255",
         "lastName" => "nullable|string|max:255",
+        "email" => "nullable|string|max:255",
+        "relationship" => "nullable|string|max:255",
         "gender" => "required",
         "twinMultiple" => "nullable",
         "birthDate" => "required",
@@ -48,10 +52,13 @@ class CreateBaby extends Component
 
         $baby = Baby::create([
             "user_id" => auth()->user()->id,
+            "user_name" => auth()->user()->name,
             "approved" => $this->approved ?1:0,
             "first_name" => $this->firstName,
             "middle_name" => $this->middleName,
             "last_name" => $this->lastName,
+            "email" => $this->email,
+            "relationship" => $this->relationship,
             "gender" => $this->gender,
             "twin_multiple" => $this->twinMultiple,
             "birth_date" => $this->birthDate,

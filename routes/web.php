@@ -63,3 +63,6 @@ Route::middleware(["auth", "role:admin"])->prefix("admin")->name("admin.")->grou
 
 
 });
+
+
+Route::get('/share-social', [ShareSocialController::class,'shareSocial']);

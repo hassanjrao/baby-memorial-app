@@ -51,7 +51,6 @@
 
 
                                         <div class="row g-3">
-
                                             <div class="col-sm-4 ">
                                                 <div class="form-floating">
                                                     <input type="text"
@@ -94,6 +93,35 @@
                                             </div>
 
                                             <div class="col-sm-6">
+                                                <div class="form-floating">
+                                                    <input type="text"
+                                                        class="form-control border-0 @error('email') is-invalid @enderror"
+                                                        wire:model="email" id="email"
+                                                        placeholder="Email address">
+                                                    <label for="email">Email</label>
+                                                    @error('email')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-floating">
+                                                    <input type="text"
+                                                        class="form-control border-0 @error('relationship') is-invalid @enderror"
+                                                        wire:model="relationship" id="relationship"
+                                                        placeholder="relationship address">
+                                                    <label for="relationship">Relationship to baby</label>
+                                                    @error('relationship')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-6">
                                                 <div class="">
                                                     <select wire:model="gender"
                                                         class="form-select p-2 @error('gender') is-invalid @enderror">
@@ -113,10 +141,10 @@
                                             <div class="col-sm-6">
                                                 <div class="">
                                                     <select wire:model="twinMultiple" class="form-select p-2">
-                                                        <option value=""></option>
+                                                        <option value="">Is your baby a twin/multiple?</option>
 
-                                                        <option value="twin">Twin</option>
-                                                        <option value="multiple">Multiple</option>
+                                                        <option value="yes">Yes</option>
+                                                        <option value="no">No</option>
                                                     </select>
                                                     @error('twinMultiple')
                                                         <span class="invalid-feedback" role="alert">

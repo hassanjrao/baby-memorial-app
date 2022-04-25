@@ -27,6 +27,8 @@ class EditBaby extends Component
         "baby.first_name" => "required|string|max:255",
         "baby.middle_name" => "nullable|string|max:255",
         "baby.last_name" => "nullable|string|max:255",
+        "baby.email" => "nullable|string|max:255",
+        "baby.relationship" => "nullable|string|max:255",
         "baby.gender" => "required",
         "baby.twin_multiple" => "nullable",
         "baby.birth_date" => "required",

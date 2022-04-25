@@ -68,7 +68,7 @@
                                     alt="" style="width: 45px; height: 45px" /> --}}
                                     <h4>Author:</h4>
                                 <div class="ms-3">
-                                    <h6 class=" mb-1">{{ $baby->user->name }}</h6>
+                                    <h6 class=" mb-1">{{ $baby->user_name }}</h6>
 
                                     <small>{{ $baby->created_at->format("d M, Y") }}</small>
 

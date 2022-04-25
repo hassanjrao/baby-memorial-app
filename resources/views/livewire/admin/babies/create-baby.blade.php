@@ -80,8 +80,30 @@
                             </div>
                         @enderror
                     </div>
-
-
+                    <div class="col-lg-6 mb-4">
+                        <div>
+                            <label for="email">Email</label>
+                            <input type="email" placeholder="Type Email" wire:model="email"
+                                class="form-control @error('email') is-invalid @enderror" />
+                        </div>
+                        @error('email')
+                            <div class="text-danger font-weight-bold">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div>
+                            <label for="relationship">Relationship to the baby</label>
+                            <input type="text" placeholder="Type Relationship to the baby" wire:model="relationship"
+                                class="form-control @error('relationship') is-invalid @enderror" />
+                        </div>
+                        @error('relationship')
+                            <div class="text-danger font-weight-bold">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
 
 
 
@@ -105,11 +127,11 @@
 
                     <div class="col-lg-6 mb-4">
                         <div class="form-group">
-                            <label for="twinMultiple">Twin/Multiple</label>
+                            <label for="twinMultiple">Is your baby a twin/multiple?</label>
                             <select wire:ignore class="form-select" id="twinMultiple" wire:model="twinMultiple">
                                 <option value=""></option>
-                                <option value="twin">Twin</option>
-                                <option value="multiple">Multiple</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
                             </select>
                         </div>
                         @error('twinMultiple')
