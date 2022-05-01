@@ -178,6 +178,7 @@ return [
         Spatie\Permission\PermissionServiceProvider::class,
 
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+        Jorenvh\Share\Providers\ShareServiceProvider::class,
 
 
     ],

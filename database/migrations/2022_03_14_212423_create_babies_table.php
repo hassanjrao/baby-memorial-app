@@ -35,6 +35,8 @@ return new class extends Migration
 
             $table->text("story")->nullable();
             $table->text("user_name")->nullable();
+            $table->text("note")->nullable();
+            $table->bigInteger("view_count")->nullable();
 
             $table->boolean("in_tshirts")->default(0)->comment("1 = yes, 0 = no");
 

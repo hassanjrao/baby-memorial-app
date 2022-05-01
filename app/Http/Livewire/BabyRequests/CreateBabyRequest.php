@@ -22,6 +22,7 @@ class CreateBabyRequest extends Component
     public $gender;
     public $twinMultiple;
     public $birthDate;
+    public $note;
     public $deathDate;
     public $story;
     public $inTshirts;
@@ -36,6 +37,7 @@ class CreateBabyRequest extends Component
         "relationship" => "nullable|string|max:255",
         "gender" => "required",
         "twinMultiple" => "nullable",
+        "note" => "nullable",
         "birthDate" => "required",
         "deathDate" => "required",
         "story" => "nullable|string|min:5",
@@ -55,6 +57,7 @@ class CreateBabyRequest extends Component
         $baby = Baby::create([
             "user_id" => auth()->user()->id,
             "user_name" => auth()->user()->name,
+            "note" => $this->note,
             "first_name" => $this->firstName,
             "middle_name" => $this->middleName,
             "last_name" => $this->lastName,

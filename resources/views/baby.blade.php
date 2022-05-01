@@ -20,46 +20,7 @@
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
 
-                    <p>
-                        Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit.
-                        Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit,
-                        sed stet lorem sit clita duo justo magna dolore erat amet
-                    </p>
-                    <p class="mb-4">
-                        Stet no et lorem dolor et diam, amet duo ut dolore vero eos. No
-                        stet est diam rebum amet diam ipsum. Clita clita labore, dolor
-                        duo nonumy clita sit at, sed sit sanctus dolor eos, ipsum labore
-                        duo duo sit no sea diam. Et dolor et kasd ea. Eirmod diam at
-                        dolor est vero nonumy magna.
-                    </p>
-                    <p class="mb-4">
-                        Stet no et lorem dolor et diam, amet duo ut dolore vero eos. No
-                        stet est diam rebum amet diam ipsum. Clita clita labore, dolor
-                        duo nonumy clita sit at, sed sit sanctus dolor eos, ipsum labore
-                        duo duo sit no sea diam. Et dolor et kasd ea. Eirmod diam at
-                        dolor est vero nonumy magna.
-                    </p>
-                    <p class="mb-4">
-                        Stet no et lorem dolor et diam, amet duo ut dolore vero eos. No
-                        stet est diam rebum amet diam ipsum. Clita clita labore, dolor
-                        duo nonumy clita sit at, sed sit sanctus dolor eos, ipsum labore
-                        duo duo sit no sea diam. Et dolor et kasd ea. Eirmod diam at
-                        dolor est vero nonumy magna.
-                    </p>
-                    <p class="mb-4">
-                        Stet no et lorem dolor et diam, amet duo ut dolore vero eos. No
-                        stet est diam rebum amet diam ipsum. Clita clita labore, dolor
-                        duo nonumy clita sit at, sed sit sanctus dolor eos, ipsum labore
-                        duo duo sit no sea diam. Et dolor et kasd ea. Eirmod diam at
-                        dolor est vero nonumy magna.
-                    </p>
-                    <p class="mb-4">
-                        Stet no et lorem dolor et diam, amet duo ut dolore vero eos. No
-                        stet est diam rebum amet diam ipsum. Clita clita labore, dolor
-                        duo nonumy clita sit at, sed sit sanctus dolor eos, ipsum labore
-                        duo duo sit no sea diam. Et dolor et kasd ea. Eirmod diam at
-                        dolor est vero nonumy magna.
-                    </p>
+                    {{ $baby->story }}
                     <div class="row g-4 align-items-center">
 
                         <div class="col-sm-6">
@@ -80,12 +41,33 @@
                 <div class="col-lg-6 about-img wow fadeInUp" data-wow-delay="0.5s">
                     <div class="row">
                         <div class="col-12 text-center">
-                            <img class="img-fluid w-75 rounded bg-light p-3"
-                                src="{{ asset('storage/babies/'.$baby->image) }}" alt="" />
+                            <img class="img-fluid w-75 rounded bg-light p-3" src="{{ asset('storage/babies/'.$baby->image) }}" alt="" />
                         </div>
-
                     </div>
                 </div>
+            </div>
+            {{-- MORE BABIES --}}
+            @if($baby->note)
+                <div class="mt-5 wow fadeInUp" data-wow-delay="0.1s">
+                    <p><strong>Note from {{ $baby->user_name }}</strong></p>
+                    <p class="mt-3">{{ $baby->note }}</p>
+                </div>
+            @endif
+            <br/>
+            <br/>
+            <div>
+                @if($previous)
+                <a href="{{ route('baby.show', [$previous->id, $previous->first_name]) }}" class="btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight">Previous Baby</a>
+                @endif
+                @if($next)
+                <a href="{{ route('baby.show', [$next->id, $next->first_name]) }}" class="btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight">Next Baby</a>
+                @endif
+            </div>
+            <br/>
+            <h5>Share</h5>
+            <div class="d-flex pt-2">
+                <a class="btn btn-outline-light btn-social" href="{{$socialShare['twitter']}}"><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-outline-light btn-social" href="{{$socialShare['facebook']}}"><i class="fab fa-facebook-f"></i></a>
             </div>
         </div>
     </div>

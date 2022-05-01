@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\BabyRequestsController;
 use App\Http\Controllers\UserProfileController;
+use App\Http\Controllers\SocialShareController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -29,7 +30,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get("baby/{id}/{firstName}", [BabyRequestsController::class, "show"])->name("baby.show");
-
 Route::get("nursery", [BabyRequestsController::class, "index"])->name("baby.index");
 
 Route::get("about-us", function () {
@@ -65,4 +65,5 @@ Route::middleware(["auth", "role:admin"])->prefix("admin")->name("admin.")->grou
 });
 
 
-Route::get('/share-social', [ShareSocialController::class,'shareSocial']);
+Route::get('/share-social', [SocialShareController::class, 'index']);
+// Route::get('/social-media-share', [SocialShareButtonsController::class,'ShareWidget']);

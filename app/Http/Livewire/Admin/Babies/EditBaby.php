@@ -31,9 +31,9 @@ class EditBaby extends Component
         "baby.relationship" => "nullable|string|max:255",
         "baby.gender" => "required",
         "baby.twin_multiple" => "nullable",
+        "baby.note" => "nullable",
         "baby.birth_date" => "required",
         "baby.death_date" => "required",
-        "baby.story" => "required|string|min:5",
         "baby.in_tshirts" => "nullable|boolean",
         "approved" => "nullable|boolean",
         "image" => "nullable|image|mimes:jpg,png,jpeg,gif,svg",
@@ -42,7 +42,7 @@ class EditBaby extends Component
 
     public function mount()
     {
-        $this->story= $this->baby->story;
+        // $this->story= $this->baby->story;
         $this->oldimage= $this->baby->image;
 
         // session()->put('_old_input', ["asdasd"=>"asdasd"]);

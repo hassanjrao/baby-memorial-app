@@ -22,9 +22,9 @@ class CreateBaby extends Component
     public $twinMultiple;
     public $birthDate;
     public $deathDate;
+    public $note;
     public $story;
     public $inTshirts;
-    public $approved=false;
 
 
     protected $rules = [
@@ -36,11 +36,9 @@ class CreateBaby extends Component
         "relationship" => "nullable|string|max:255",
         "gender" => "required",
         "twinMultiple" => "nullable",
+        "note" => "nullable",
         "birthDate" => "required",
         "deathDate" => "required",
-        "story" => "required|string|min:5",
-        "approved"=>"nullable|boolean",
-
     ];
 
 
@@ -53,7 +51,8 @@ class CreateBaby extends Component
         $baby = Baby::create([
             "user_id" => auth()->user()->id,
             "user_name" => auth()->user()->name,
-            "approved" => $this->approved ?1:0,
+            "note" => $this->note,
+            "approved" => 1,
             "first_name" => $this->firstName,
             "middle_name" => $this->middleName,
             "last_name" => $this->lastName,

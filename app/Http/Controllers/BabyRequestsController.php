@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Baby;
 use Illuminate\Http\Request;
-
+use Share;
 class BabyRequestsController extends Controller
 {
     /**
@@ -48,9 +48,27 @@ class BabyRequestsController extends Controller
     public function show($id,$firstName)
     {
         $baby=Baby::findorfail($id);
+        $next = Baby::where('id', '>', $id)->orderBy('id')->first();
+        $previous = Baby::where('id', '<', $id)->orderBy('id','desc')->first();
+        
+        // SHARING CODE: BEGINS
+        $shareLink = url('/').'/baby/'.$baby->id."/".$baby->first_name;
+        $babyName = $baby->first_name . ' ' . $baby->middle_name. ' ' . $baby->last_name;
+        $socialShare = Share::page(
+            'http://127.0.0.1:8001/baby/2/Te',
+            $babyName,
+            )
+            ->facebook()
+            ->twitter()->getRawLinks();
+        // SHARING CODE: ENDS
 
-        return view("baby",compact("baby"));
+        // VIEW COUNT CODE:BEGINS
+        Baby::where('id', $id)->increment('view_count', 1);
+        // VIEW COUNT CODE:ENDS
+        return view("baby",compact("baby","next","previous", "socialShare"));
     }
+
+    
 
     /**
      * Show the form for editing the specified resource.

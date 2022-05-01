@@ -187,6 +187,19 @@
                         @enderror
                     </div>
 
+                    <div class="col-lg-12 mb-4">
+                        <div>
+                            <label for="note">Note</label>
+                            <input type="text" wire:model="note"
+                                class="form-control @error('note') is-invalid @enderror" />
+                        </div>
+                        @error('note')
+                            <div class="text-danger font-weight-bold">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+
                     <div class="col-sm-12 mb-4">
 
                         <div class="form-check form-check-inline">
@@ -197,12 +210,12 @@
 
                     </div>
 
-                    <div class="col-sm-6">
+                    {{-- <div class="col-sm-6">
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" wire:model="approved" id="flexSwitchCheckChecked" checked>
                             <label class="form-check-label" for="flexSwitchCheckChecked">Approved</label>
                         </div>
-                    </div>
+                    </div> --}}
 
 
                     <div class="col-sm-6 text-end">

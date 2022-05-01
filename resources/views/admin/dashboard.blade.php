@@ -2,7 +2,7 @@
 @section("page-title", "Dashboard - Admin")
 @section('content')
     <!-- Hero -->
-    <div class="bg-body-light">
+    {{-- <div class="bg-body-light">
         <div class="content content-full">
             <div class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center py-2">
                 <div class="flex-grow-1">
@@ -25,16 +25,16 @@
                 </nav>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- END Hero -->
 
     <!-- Page Content -->
     <div class="content">
         <div class="row row-deck">
-            <div class="col-md-6 col-xl-4">
+            <div class="col-md-12">
                 <div class="block block-rounded">
                     <div class="block-header block-header-default">
-                        <h3 class="block-title">Welcome</h3>
+                        <h3 class="block-title">Welcome to Dashboard</h3>
                     </div>
                     <div class="block-content fs-sm text-muted">
                         <p>
@@ -49,30 +49,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-xl-4">
-                <div class="block block-rounded">
-                    <div class="block-header block-header-default">
-                        <h3 class="block-title">Block Title</h3>
-                    </div>
-                    <div class="block-content fs-sm text-muted">
-                        <p>
-                            ...
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-xl-4">
-                <div class="block block-rounded">
-                    <div class="block-header block-header-default">
-                        <h3 class="block-title">Block Title</h3>
-                    </div>
-                    <div class="block-content fs-sm text-muted">
-                        <p>
-                            ...
-                        </p>
-                    </div>
-                </div>
-            </div>
+            
         </div>
     </div>
     <!-- END Page Content -->
