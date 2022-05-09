@@ -209,6 +209,19 @@
                             </div>
                         @enderror
                     </div>
+                    <div class="col-lg-12 mb-4">
+                        <div>
+
+                            <label for="baby.view_count">View Count:</label>
+                            <input type="text" wire:model="baby.view_count"
+                                class="form-control @error('baby.view_count') is-invalid @enderror" />
+                        </div>
+                        @error('baby.view_count')
+                            <div class="text-danger font-weight-bold">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
 
                     <div class="col-sm-12 mb-4">
 
