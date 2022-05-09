@@ -69,6 +69,8 @@
                 <a class="btn btn-outline-light btn-social" href="{{$socialShare['twitter']}}"><i class="fab fa-twitter"></i></a>
                 <a class="btn btn-outline-light btn-social" href="{{$socialShare['facebook']}}"><i class="fab fa-facebook-f"></i></a>
             </div>
+            <br/>
+            <p>{{$baby->view_count}} Views</p>
         </div>
     </div>
 @endsection
