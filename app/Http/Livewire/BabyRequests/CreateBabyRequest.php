@@ -25,7 +25,7 @@ class CreateBabyRequest extends Component
     public $note;
     public $deathDate;
     public $story;
-    public $inTshirts;
+    public $inTshirts=0;
 
 
     protected $rules = [
