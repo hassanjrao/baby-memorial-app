@@ -36,7 +36,7 @@ class EditBaby extends Component
         "baby.death_date" => "required",
         "baby.in_tshirts" => "nullable|boolean",
         "baby.view_count" => "nullable",
-        "approved" => "nullable|boolean",
+        "baby.approved" => "nullable|boolean",
         "image" => "nullable|image|mimes:jpg,png,jpeg,gif,svg",
 
     ];
@@ -67,9 +67,11 @@ class EditBaby extends Component
 
         $this->baby->save();
 
-        $this->baby->update([
-            "approved"=>$this->approved ?1:0,
-        ]);
+        if($this->approved){
+            $this->baby->update([
+                "approved"=>$this->approved,
+            ]);
+        }
 
         if ($this->image) {
             $file = $this->image->store("public/babies");

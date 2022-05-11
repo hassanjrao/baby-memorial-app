@@ -202,20 +202,24 @@
 
                                             </div>
 
-                                            <div class="col-sm-12">
-                                                <div class="form-floating">
-                                                    <input type="text"
-                                                        class="form-control border-0 @error('note') is-invalid @enderror"
-                                                        wire:model="note" id="note"
-                                                        placeholder="Note">
-                                                    <label for="note">Note</label>
-                                                    @error('note')
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
-                                                    @enderror
-                                                </div>
-                                            </div>
+                                            @auth
+                                                @if (auth()->user()->hasRole('admin'))
+                                                    <div class="col-sm-12">
+                                                        <div class="form-floating">
+                                                            <input type="text"
+                                                                class="form-control border-0 @error('note') is-invalid @enderror"
+                                                                wire:model="note" id="note"
+                                                                placeholder="Note">
+                                                            <label for="note">Note</label>
+                                                            @error('note')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                @endif
+                                            @endauth
 
                                             <div class="col-sm-12">
                                                 <div class="form-floating">

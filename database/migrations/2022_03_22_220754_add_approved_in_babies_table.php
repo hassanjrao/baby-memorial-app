@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('babies', function (Blueprint $table) {
 
-            $table->boolean('approved')->default(false)->comment("1: approved, 0: not approved")->after("user_id");
+            $table->boolean('approved')->default(0)->comment("1: approved, 0: not approved")->after("user_id");
 
         });
     }

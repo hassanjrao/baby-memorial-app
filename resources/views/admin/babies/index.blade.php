@@ -80,14 +80,15 @@
                                         @endif
                                     </td>
                                     <td>
-                                        @if ($baby->twin_multiple == 'twin')
-                                            <span class="badge btn btn-xs rounded-pill bg-success"><i
-                                                    class="fa fa-fw fa-user-friends"></i>
-                                                Twin</span>
-                                        @elseif ($baby->twin_multiple == 'multiple')
-                                            <span class="badge rounded-pill bg-info"><i
-                                                    class="fa fa-fw fa-user-friends"></i>
-                                                Multiple</span>
+                                        @if ($baby->twin_multiple == 'yes')
+                                            <span class="badge btn btn-xs rounded-pill bg-success">
+                                                <i class="fa fa-fw fa-check"></i>
+                                                Yes
+                                            </span>
+                                        @elseif ($baby->twin_multiple == 'no')
+                                            <span class="badge rounded-pill bg-info">
+                                                No
+                                            </span>
                                         @endif
                                     </td>
 
