@@ -55,7 +55,7 @@ class BabyRequestsController extends Controller
         $shareLink = url('/').'/baby/'.$baby->id."/".$baby->first_name;
         $babyName = $baby->first_name . ' ' . $baby->middle_name. ' ' . $baby->last_name;
         $socialShare = Share::page(
-            'http://127.0.0.1:8001/baby/2/Te',
+            $shareLink,
             $babyName,
             )
             ->facebook()

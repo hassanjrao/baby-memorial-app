@@ -66,6 +66,7 @@
             <br/>
             <h5>Share</h5>
             <div class="d-flex pt-2">
+                
                 <a class="btn btn-outline-light btn-social" href="{{$socialShare['twitter']}}"><i class="fab fa-twitter"></i></a>
                 <a class="btn btn-outline-light btn-social" href="{{$socialShare['facebook']}}"><i class="fab fa-facebook-f"></i></a>
             </div>
